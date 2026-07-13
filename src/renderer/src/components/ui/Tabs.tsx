@@ -4,29 +4,36 @@ export interface Tab {
   id: string
   label: string
   icon?: React.ReactNode
-  content: React.ReactNode
+  content?: React.ReactNode
 }
 
 export interface TabsProps {
   tabs: Tab[]
   defaultTabId?: string
+  activeTab?: string
   onChange?: (tabId: string) => void
+  onTabChange?: (tabId: string) => void
   className?: string
 }
 
 export const Tabs: React.FC<TabsProps> = ({ 
   tabs, 
   defaultTabId, 
+  activeTab: controlledActiveTab,
   onChange,
+  onTabChange,
   className = '' 
 }) => {
-  const [activeTab, setActiveTab] = useState(defaultTabId || tabs[0]?.id)
+  const [internalActiveTab, setInternalActiveTab] = useState(defaultTabId || tabs[0]?.id)
+  
+  const activeTab = controlledActiveTab !== undefined ? controlledActiveTab : internalActiveTab
 
   const handleTabClick = (id: string) => {
-    setActiveTab(id)
-    if (onChange) {
-      onChange(id)
+    if (controlledActiveTab === undefined) {
+      setInternalActiveTab(id)
     }
+    if (onChange) onChange(id)
+    if (onTabChange) onTabChange(id)
   }
 
   return (

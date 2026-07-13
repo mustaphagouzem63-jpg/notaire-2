@@ -100,7 +100,7 @@ export function registerUsersHandlers(): void {
     updatePassword(id, password_hash)
     
     // Also force them to change it on next login if admin reset it
-    updateUser(id, { force_password_change: 1 })
+    updateUser(id, { force_password_change: true })
     
     if (sessionData?.user) {
       logAction({

@@ -33,8 +33,10 @@ function createWindow(): void {
 
     console.log('BrowserWindow created.')
 
-    // Open devtools to debug
-    mainWindow.webContents.openDevTools()
+    // Open devtools only in dev mode
+    if (process.env.NODE_ENV === 'development') {
+      mainWindow.webContents.openDevTools()
+    }
 
     // Show maximized once ready to avoid white flash
     mainWindow.on('ready-to-show', () => {

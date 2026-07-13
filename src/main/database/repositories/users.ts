@@ -61,7 +61,9 @@ export function updateUser(id: number, data: Partial<IUser>): IUser {
   for (const field of allowedFields) {
     if (field in data) {
       fields.push(`${field} = ?`)
-      values.push((data as Record<string, unknown>)[field] as string | number | null)
+      let val = (data as Record<string, unknown>)[field]
+      if (typeof val === 'boolean') val = val ? 1 : 0
+      values.push(val as string | number | null)
     }
   }
 

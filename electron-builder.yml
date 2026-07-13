@@ -1,0 +1,16 @@
+appId: com.notarypro.app
+productName: NotaryOffice
+directories:
+  output: dist
+  buildResources: build
+files:
+  - out/main/**/*
+  - out/preload/**/*
+  - out/renderer/**/*
+win:
+  target: nsis
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  shortcutName: "Notary Office"

@@ -153,7 +153,7 @@ export default function DocumentArchivePage() {
       title: t('documents.category'),
       render: (doc: any) => (
         <Badge variant="secondary">
-          {doc.document_category ? t(`documents.cat_${doc.document_category}`, doc.document_category) : '—'}
+          {doc.document_category ? (t(`documents.cat_${doc.document_category}`, doc.document_category) as string) : '—'}
         </Badge>
       )
     },

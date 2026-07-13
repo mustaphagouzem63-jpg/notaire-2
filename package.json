@@ -33,6 +33,7 @@
     "@types/archiver": "^6.0.3",
     "@types/bcryptjs": "^2.4.6",
     "@types/better-sqlite3": "^7.6.12",
+    "@types/pdfmake": "^0.3.3",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

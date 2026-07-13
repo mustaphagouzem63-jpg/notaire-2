@@ -29,7 +29,8 @@ const fonts = {
   }
 }
 
-const printer = new PdfPrinter(fonts)
+  // @ts-expect-error - pdfmake exports a constructor but types mismatch
+  const printer = new PdfPrinter(fonts)
 
 export async function generateContractPdf(contract: IContractWithClients, templateContentFr: string, templateContentAr: string): Promise<string> {
   const officeNameFr = getSetting('office_name') || 'Office Notarial'

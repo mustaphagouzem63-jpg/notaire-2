@@ -10,6 +10,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   error?: string
   options: SelectOption[]
   helperText?: string
+  placeholder?: string
 }
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(

@@ -154,7 +154,7 @@ export default function UserManagementPage() {
       key: 'is_active',
       title: 'Statut',
       render: (user: any) => (
-        <Badge variant={user.is_active ? 'success' : 'destructive'}>
+        <Badge variant={user.is_active ? 'success' : 'danger'}>
           {user.is_active ? 'Actif' : 'Inactif'}
         </Badge>
       )
